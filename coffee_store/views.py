@@ -8,17 +8,18 @@ def booking(request):
         # Manually extract data from POST request
         name = request.POST.get("name")
         email = request.POST.get("email")
+        phone = request.POST.get("phone")
         date = request.POST.get("date")
         time = request.POST.get("time")
         guest = request.POST.get("person")
 
         # Validate data
-        if not all([name, email, date, time, guest]):
+        if not all([name, email, phone, date, time, guest]):
             messages.error(request, "All fields are required.")
         else:
             try:
                 # Save data to the database
-                booking = Booking(name=name, email=email, date=date, time=time, guest=guest)
+                booking = Booking(name=name, email=email, phone=phone, date=date, time=time, guest=guest)
                 booking.save()
                 # Display success message and stay on the page
                 messages.success(request, "Booking successful!")
