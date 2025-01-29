@@ -13,6 +13,6 @@
 
 ## Login admin panal :
 
-username : admin
+<b> username </b>: admin
 <br/>
-password: admin
+<b> password </b>: admin
